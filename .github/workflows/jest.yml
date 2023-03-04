@@ -3,7 +3,7 @@ name: Jest Test
 
 # 対象のイベント
 on:
-  push:
+  # push:
   pull_request:
 
 jobs:
