@@ -1,11 +1,14 @@
+# ワークフロー名
 name: Jest Test
 
+# 対象のイベント
 on:
   push:
   pull_request:
 
 jobs:
-  build:
+  #　ジョブ名
+  jest-test:
     runs-on: ubuntu-latest
 
     steps:
