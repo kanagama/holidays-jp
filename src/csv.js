@@ -1,13 +1,13 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var moment = require("moment");
 var iconv = require("iconv-lite");
-var fs = require('fs');
-var parse = require('csv-parse/sync');
+var fs = require("fs");
+var parse = require("csv-parse/sync");
 var csv = fs.readFileSync(__dirname + '/../csv/syukujitsu.csv');
 var utf8csv = parse.parse(iconv.decode(csv, "Shift_JIS"));
 /**
- * @cass
+ * @class
  */
 var Csv = /** @class */ (function () {
     /**
@@ -175,6 +175,8 @@ var Csv = /** @class */ (function () {
             return false;
         }
         var checkday = this.createMomentObject(year, month, date);
+        // ESLint のチェックを通過させるために余計な処理を入れたくないため、チェックをスキップする
+        // eslint-disable-next-line no-constant-condition
         while (true) {
             checkday.subtract(1, 'days');
             if (!this.checkRealPublicHoliday(checkday.year(), checkday.month(), checkday.date())) {
@@ -199,7 +201,7 @@ var Csv = /** @class */ (function () {
         return moment({
             year: year,
             month: month,
-            date: date
+            date: date,
         });
     };
     return Csv;

@@ -8,6 +8,7 @@
     "postinstall": "npm run download-holidays-csv",
     "postupdate": "npm run download-holidays-csv",
     "tsc": "tsc --outDir src ts/*.ts",
+    "static_analysis": "npx eslint ts/*.ts",
     "test": "jest"
   },
   "repository": {
@@ -19,7 +20,10 @@
     "japan",
     "jp"
   ],
-  "author": "Kazuma Nagama <k.nagama0632@gmail.com> (https://github.com/kanagama)",
+  "author": {
+    "name": "k-nagama",
+    "email": "k.nagama0632@gmail.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kanagama/holidays-jp/issues"
@@ -27,9 +31,17 @@
   "homepage": "https://github.com/kanagama/holidays-jp#readme",
   "devDependencies": {
     "@types/iconv-lite": "^0.0.1",
+    "@types/isomorphic-fetch": "^0.0.36",
     "@types/moment": "^2.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "eslint": "^8.36.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
     "jest": "^29.4.3",
-    "typescript": "^4.9.5",
+    "typescript": "^5.0.2",
     "uglify-js": "^3.17.4"
   },
   "dependencies": {

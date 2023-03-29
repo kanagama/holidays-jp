@@ -3,14 +3,14 @@ import { Holiday } from './interface/holidayInterface';
 import * as moment from 'moment';
 import * as iconv from 'iconv-lite';
 
-const fs = require('fs');
-const parse = require('csv-parse/sync');
+import * as fs from 'fs';
+import * as parse from 'csv-parse/sync';
 
 const csv = fs.readFileSync(__dirname + '/../csv/syukujitsu.csv');
 const utf8csv: Array<string> = parse.parse(iconv.decode(csv, "Shift_JIS"));
 
 /**
- * @cass
+ * @class
  */
 class Csv
 {
@@ -203,6 +203,8 @@ class Csv
     }
 
     const checkday: moment.Moment = this.createMomentObject(year, month, date);
+    // ESLint のチェックを通過させるために余計な処理を入れたくないため、チェックをスキップする
+    // eslint-disable-next-line no-constant-condition
     while (true) {
       checkday.subtract(1, 'days');
 
